@@ -24,11 +24,9 @@ namespace eAgenda2._0WinFormsApp1
             VisualizarPassados();
         }
 
-        private void CarregarCompromisso()
-        {
-            VisualizarFuturos();
-            VisualizarPassados();
-        }
+       
+           
+        
 
 
 
@@ -97,7 +95,8 @@ namespace eAgenda2._0WinFormsApp1
             if (resultado == DialogResult.OK)
             {
                 _repositorioCompromisso.Editar(cadastroCompromisso.Compromisso);
-                CarregarCompromisso();
+                VisualizarFuturos();
+                VisualizarPassados(); 
             }
         }
         private void btnExcluirCompromisso_Click(object sender, EventArgs e)
@@ -129,7 +128,8 @@ namespace eAgenda2._0WinFormsApp1
             if (resultado == DialogResult.OK)
             {
                 _repositorioCompromisso.Excluir(compromissoSelecionado);
-                CarregarCompromisso();
+                VisualizarFuturos();
+                VisualizarPassados();
             }
         }
         private void VisualizarFuturos()

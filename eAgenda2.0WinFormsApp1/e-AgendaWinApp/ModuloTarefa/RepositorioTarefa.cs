@@ -29,7 +29,7 @@ namespace eAgenda2._0WinFormsApp1
 
 
         }
-
+       
        
 
         public void Inserir(Tarefa novaTarefa)
@@ -106,4 +106,6 @@ namespace eAgenda2._0WinFormsApp1
 
             return (List<Tarefa>)serializador.Deserialize(ms);
         }
+
+      
     }   }

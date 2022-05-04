@@ -23,7 +23,12 @@ namespace eAgenda2._0WinFormsApp1
                                                                               
         }
 
-        public int Prioridad { get; set; }
+        public int Prioridad
+        {
+            get { return Prioridad; }
+            set { Prioridad = value; }
+        }
+          
         public string Titulo { get; set; }
 
        

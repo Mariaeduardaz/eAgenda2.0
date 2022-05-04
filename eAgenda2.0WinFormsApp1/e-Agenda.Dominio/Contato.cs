@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eAgenda2._0WinFormsApp1
 {
-    public class Contato : EntidadeBase
+    public class Contato : EntidadeBase, IEnumerable
     {
 
        

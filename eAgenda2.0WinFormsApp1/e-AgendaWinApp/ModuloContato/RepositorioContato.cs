@@ -17,16 +17,17 @@ namespace eAgenda2._0WinFormsApp1
 
 
 
+
         }
         public string Inserir(Contato novoContato)
         {
             string resultado = novoContato.Validar();
-            if(resultado.Trim() != "REGISTRO VALIDO")
+            if(resultado.Trim() != "REGISTRO_VALIDO")
             {
                 return resultado;
             }
             contatos.Add(novoContato);
-            return "REGISTRO VALIDO";
+            return "REGISTRO_VALIDO";
             
 
         }
@@ -41,11 +42,17 @@ namespace eAgenda2._0WinFormsApp1
         {
             contatos.Remove(contato);
         }
-
-        internal void Inserir(object contato)
+        public bool RegistroExistente()
         {
-            throw new NotImplementedException();
+            int quantidade = contatos.Count;
+            if (quantidade == 0)
+                return false;
+
+            else
+                return true;
         }
-       
+
+
+
     }
 }

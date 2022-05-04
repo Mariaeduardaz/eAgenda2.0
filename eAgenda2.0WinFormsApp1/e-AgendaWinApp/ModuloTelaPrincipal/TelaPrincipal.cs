@@ -37,7 +37,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void button3_Click(object sender, EventArgs e) //contatos
         {
-            ListagemContato listagemContato = new ListagemContato();
+            ListagemContato listagemContato = new ListagemContato(repositorioContato);
             listagemContato.ShowDialog();
         }
 

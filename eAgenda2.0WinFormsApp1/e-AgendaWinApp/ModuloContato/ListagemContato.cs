@@ -13,37 +13,42 @@ namespace eAgenda2._0WinFormsApp1
     public partial class ListagemContato : Form
     {
 
-        private RepositorioContato repositoriocontato;
-        public ListagemContato()
+        RepositorioContato repositoriocontato;
+        public ListagemContato(RepositorioContato _repositorioContato)
         {
-            repositoriocontato = new RepositorioContato();
+
             InitializeComponent();
-            CarregarContatos();
+            repositoriocontato = _repositorioContato;
+            MostrarContatosNaTela();
         }
 
-        private void CarregarContatos()
-        {
-            List<Contato> contatos = repositoriocontato.SelecionarTodos();
 
-            listContatos.Items.Clear();
-            foreach (Contato c in contatos)
-            {
-                listContatos.Items.Add(c);
-            }
-        }
 
         private void btnInserirContato_Click(object sender, EventArgs e)
         {
 
-            CadastroContato telaContato = new ( new Contato());
+            CadastroContato telaContato = new CadastroContato();
             telaContato.Contato = new Contato();
 
             DialogResult resultado = telaContato.ShowDialog();
 
+            
             if (resultado == DialogResult.OK)
             {
-                repositoriocontato.Inserir(telaContato.Contato);
-                CarregarContatos();
+                Contato descriocaCntt = telaContato.Contato;
+                bool tituloNovo = VerificarExistentente(descriocaCntt);
+                if (!tituloNovo)
+                    return;
+
+                string status = repositoriocontato.Inserir(telaContato.Contato);
+
+                if (status.Trim() == "REGISTRO_VALIDO")
+                    MessageBox.Show("Contato cadastrado com sucesso!", "Contato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                    MessageBox.Show($"{status}\nTente novamente", "Contato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                MostrarContatosNaTela();
             }
         }
 
@@ -55,6 +60,8 @@ namespace eAgenda2._0WinFormsApp1
         private void btnEditarContato_Click(object sender, EventArgs e)
         {
             Contato contatoSelecionada = (Contato)listContatos.SelectedItem;
+
+
 
             if (contatoSelecionada == null)
             {
@@ -74,7 +81,7 @@ namespace eAgenda2._0WinFormsApp1
             if (resultado == DialogResult.OK)
             {
                 repositoriocontato.Editar(telacontato.Contato);
-                CarregarContatos();
+                MostrarContatosNaTela();
             }
 
         }
@@ -98,36 +105,94 @@ namespace eAgenda2._0WinFormsApp1
             if (resultado == DialogResult.OK)
             {
                 repositoriocontato.Excluir(contatoSelecionado);
-                CarregarContatos();
+                MostrarContatosNaTela();
             }
         }
 
         private void btnContato_Click(object sender, EventArgs e) // visualizar
         {
-            CarregarContatos();
+            MostrarContatosNaTela();
+
         }
 
+
         private void MostrarContatosNaTelaPorCargo()
+        {
+            var contatosPorCargo = repositoriocontato.SelecionarTodos()
+                                                   .OrderBy(x => x.Cargo)
+                                                   .ToList();
+
+            listContatos.Items.Clear();
+
+            foreach (var c in contatosPorCargo)
+            {
+                listContatos.Items.Add(c);
+            }
+
+        }
+
+        private void MostrarContatosNaTela()
         {
             List<Contato> contatos = repositoriocontato.SelecionarTodos();
             listContatos.Items.Clear();
 
             foreach (Contato c in contatos)
+            {
                 listContatos.Items.Add(c);
-
+            }
         }
 
         private void button2_Click(object sender, EventArgs e) //ordenado por cargo
         {
-            
-            
-                MostrarContatosNaTelaPorCargo();
-            
+
+
+            MostrarContatosNaTelaPorCargo();
+
+
+        }
+        private bool VerificarSeTemRegistro(Contato contatoSelecionado, string tipo)
+        {
+            bool temAlgo = repositoriocontato.RegistroExistente();
+            if (!temAlgo)
+            {
+                MessageBox.Show($"Nenhum contato para {tipo}", tipo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (contatoSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um contato para {tipo}", tipo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+                return true;
+        }
+        private bool VerificarExistentente(Contato temp)
+        {
+            List<Contato> todosContatos = repositoriocontato.SelecionarTodos();
+
+            foreach (Contato contatoJaRegistrado in todosContatos)
+            {
+                if (contatoJaRegistrado.Nome == temp.Nome)
+                {
+                    MessageBox.Show("O Nome do contato já existe", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (contatoJaRegistrado.Email == temp.Email)
+                {
+                    MessageBox.Show("O Email do contato já existe", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (contatoJaRegistrado.Telefone == temp.Telefone)
+                {
+                    MessageBox.Show("O Telefone do contato já existe", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            return true;
+
 
         }
 
-
     }
-    
 }
 

@@ -29,6 +29,12 @@ namespace eAgenda2._0WinFormsApp1
             }
         }
 
+        public CadastroContato()
+        {
+
+            InitializeComponent();
+        }
+
         public Contato Contato
         {
 

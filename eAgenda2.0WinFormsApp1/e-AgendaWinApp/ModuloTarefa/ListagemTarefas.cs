@@ -25,10 +25,10 @@ namespace eAgenda2._0WinFormsApp1
         {
             List<Tarefa> tarefas = repositorioTarefa.SelecionarTodos();
 
-            listTarefas.Items.Clear();
+            listBoxTarefasPendentes.Items.Clear();
             foreach (Tarefa t in tarefas)
             {
-                listTarefas.Items.Add(t);
+                listBoxTarefasPendentes.Items.Add(t);
             }
         }
 
@@ -39,7 +39,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void button3_Click(object sender, EventArgs e) // cadastrar itens
         {
-            Tarefa tarefaSelecionada = (Tarefa)listTarefas.SelectedItem;
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefasPendentes.SelectedItem;
 
             if (tarefaSelecionada == null)
             {
@@ -87,7 +87,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Tarefa tarefaSelecionada = (Tarefa)listTarefas.SelectedItem;
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefasPendentes.SelectedItem;
 
             if (tarefaSelecionada == null)
             {
@@ -113,7 +113,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Tarefa tarefaSelecionada = (Tarefa)listTarefas.SelectedItem;
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefasPendentes.SelectedItem;
 
             if (tarefaSelecionada == null)
             {
@@ -136,7 +136,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            Tarefa tarefaSelecionada = (Tarefa)listTarefas.SelectedItem;
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefasPendentes.SelectedItem;
 
             if (tarefaSelecionada == null)
             {
@@ -159,6 +159,8 @@ namespace eAgenda2._0WinFormsApp1
             }
             
         }
+
+      
 
         private void listTarefas_SelectedIndexChanged(object sender, EventArgs e)
         {

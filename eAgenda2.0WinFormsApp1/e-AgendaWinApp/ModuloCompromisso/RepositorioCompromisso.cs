@@ -40,7 +40,7 @@ namespace eAgenda2._0WinFormsApp1
         {
             List<Compromisso> registrosFiltrados = new List<Compromisso>();
 
-            foreach (Compromisso registro in registrosFiltrados)
+            foreach (Compromisso registro in compromisso)
                 if (condicao(registro))
                     registrosFiltrados.Add(registro);
 

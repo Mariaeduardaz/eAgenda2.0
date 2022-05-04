@@ -33,8 +33,9 @@
             this.btnAdicionarIntens = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnConcluirItens = new System.Windows.Forms.Button();
-            this.listTarefas = new System.Windows.Forms.ListBox();
+            this.listBoxTarefasPendentes = new System.Windows.Forms.ListBox();
             this.btnVisualizar = new System.Windows.Forms.Button();
+            this.listBoxTarefasConcluidas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnInserir
@@ -86,15 +87,15 @@
             this.btnConcluirItens.Text = "Concluir Itens";
             this.btnConcluirItens.UseVisualStyleBackColor = true;
             // 
-            // listTarefas
+            // listBoxTarefasPendentes
             // 
-            this.listTarefas.FormattingEnabled = true;
-            this.listTarefas.ItemHeight = 25;
-            this.listTarefas.Location = new System.Drawing.Point(12, 86);
-            this.listTarefas.Name = "listTarefas";
-            this.listTarefas.Size = new System.Drawing.Size(877, 354);
-            this.listTarefas.TabIndex = 5;
-            this.listTarefas.SelectedIndexChanged += new System.EventHandler(this.listTarefas_SelectedIndexChanged);
+            this.listBoxTarefasPendentes.FormattingEnabled = true;
+            this.listBoxTarefasPendentes.ItemHeight = 25;
+            this.listBoxTarefasPendentes.Location = new System.Drawing.Point(12, 86);
+            this.listBoxTarefasPendentes.Name = "listBoxTarefasPendentes";
+            this.listBoxTarefasPendentes.Size = new System.Drawing.Size(860, 179);
+            this.listBoxTarefasPendentes.TabIndex = 5;
+            this.listBoxTarefasPendentes.SelectedIndexChanged += new System.EventHandler(this.listTarefas_SelectedIndexChanged);
             // 
             // btnVisualizar
             // 
@@ -106,14 +107,24 @@
             this.btnVisualizar.UseVisualStyleBackColor = true;
             this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
+            // listBoxTarefasConcluidas
+            // 
+            this.listBoxTarefasConcluidas.FormattingEnabled = true;
+            this.listBoxTarefasConcluidas.ItemHeight = 25;
+            this.listBoxTarefasConcluidas.Location = new System.Drawing.Point(12, 277);
+            this.listBoxTarefasConcluidas.Name = "listBoxTarefasConcluidas";
+            this.listBoxTarefasConcluidas.Size = new System.Drawing.Size(860, 179);
+            this.listBoxTarefasConcluidas.TabIndex = 7;
+            // 
             // ListagemTarefas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(913, 468);
+            this.Controls.Add(this.listBoxTarefasConcluidas);
             this.Controls.Add(this.btnVisualizar);
-            this.Controls.Add(this.listTarefas);
+            this.Controls.Add(this.listBoxTarefasPendentes);
             this.Controls.Add(this.btnConcluirItens);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAdicionarIntens);
@@ -137,7 +148,8 @@
         private System.Windows.Forms.Button btnAdicionarIntens;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnConcluirItens;
-        private System.Windows.Forms.ListBox listTarefas;
+        private System.Windows.Forms.ListBox listBoxTarefasPendentes;
         private System.Windows.Forms.Button btnVisualizar;
+        private System.Windows.Forms.ListBox listBoxTarefasConcluidas;
     }
 }

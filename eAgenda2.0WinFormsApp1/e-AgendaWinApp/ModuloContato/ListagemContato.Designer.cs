@@ -40,9 +40,9 @@
             // 
             this.listContatos.FormattingEnabled = true;
             this.listContatos.ItemHeight = 25;
-            this.listContatos.Location = new System.Drawing.Point(12, 81);
+            this.listContatos.Location = new System.Drawing.Point(12, 74);
             this.listContatos.Name = "listContatos";
-            this.listContatos.Size = new System.Drawing.Size(564, 354);
+            this.listContatos.Size = new System.Drawing.Size(526, 354);
             this.listContatos.TabIndex = 9;
             // 
             // btnExcluirContato
@@ -87,7 +87,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(594, 159);
+            this.button2.Location = new System.Drawing.Point(556, 132);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(106, 143);
             this.button2.TabIndex = 12;
@@ -100,7 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(722, 460);
+            this.ClientSize = new System.Drawing.Size(675, 460);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnContato);
             this.Controls.Add(this.listContatos);
