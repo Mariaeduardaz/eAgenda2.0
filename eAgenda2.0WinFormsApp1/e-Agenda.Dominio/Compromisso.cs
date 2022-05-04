@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eAgenda2._0WinFormsApp1
 {
-    public class Compromisso : EntidadeBase
+    public class Compromisso : EntidadeBase, IEnumerable<Compromisso>
     {
         
         public Contato contato = new();
@@ -16,7 +17,11 @@ namespace eAgenda2._0WinFormsApp1
         public DateTime? DataCompromisso { get; set; }
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFim { get; set; }
-       
+
+        public IEnumerator<Compromisso> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
 
         public override string ToString()
         {
@@ -46,5 +51,9 @@ namespace eAgenda2._0WinFormsApp1
             return stringbuilder.ToString();
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

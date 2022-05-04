@@ -12,7 +12,7 @@ namespace eAgenda2._0WinFormsApp1
 {
     public partial class CadastroContato : Form
     {
-        Repositorio<Contato> _repositorioContato;
+        
         private Contato? _contato;
 
         public CadastroContato(Contato contato)

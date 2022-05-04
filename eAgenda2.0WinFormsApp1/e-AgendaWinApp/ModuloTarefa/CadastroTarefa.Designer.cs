@@ -38,8 +38,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnPrioridade
@@ -50,7 +48,6 @@
             this.btnPrioridade.Size = new System.Drawing.Size(93, 25);
             this.btnPrioridade.TabIndex = 2;
             this.btnPrioridade.Text = "Prioridade";
-            this.btnPrioridade.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -71,7 +68,7 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(328, 248);
+            this.btnGravar.Location = new System.Drawing.Point(293, 171);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(111, 54);
             this.btnGravar.TabIndex = 6;
@@ -82,7 +79,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(447, 248);
+            this.btnCancelar.Location = new System.Drawing.Point(410, 171);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 54);
             this.btnCancelar.TabIndex = 7;
@@ -99,7 +96,6 @@
             this.txtPrioridade.Size = new System.Drawing.Size(238, 31);
             this.txtPrioridade.TabIndex = 8;
             this.txtPrioridade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtPrioridade.TextChanged += new System.EventHandler(this.txtNumero_TextChanged);
             // 
             // label1
             // 
@@ -142,33 +138,12 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "2-Normal";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 141);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 25);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Data de criacao";
-            // 
-            // txtData
-            // 
-            this.txtData.AccessibleDescription = "";
-            this.txtData.AllowDrop = true;
-            this.txtData.Location = new System.Drawing.Point(143, 138);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(197, 31);
-            this.txtData.TabIndex = 14;
-            this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // CadastroTarefa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(590, 326);
-            this.Controls.Add(this.txtData);
-            this.Controls.Add(this.label6);
+            this.ClientSize = new System.Drawing.Size(590, 235);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -187,7 +162,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Tarefas";
-            this.Load += new System.EventHandler(this.CadastroTarefa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +179,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtData;
     }
 }

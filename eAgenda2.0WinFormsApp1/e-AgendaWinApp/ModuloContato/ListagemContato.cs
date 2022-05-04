@@ -34,15 +34,14 @@ namespace eAgenda2._0WinFormsApp1
 
         private void btnInserirContato_Click(object sender, EventArgs e)
         {
-            CadastroContato telaContato = new CadastroContato(new Contato());
-            
-           
+
+            CadastroContato telaContato = new ( new Contato());
+            telaContato.Contato = new Contato();
 
             DialogResult resultado = telaContato.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
-               
                 repositoriocontato.Inserir(telaContato.Contato);
                 CarregarContatos();
             }
@@ -108,14 +107,26 @@ namespace eAgenda2._0WinFormsApp1
             CarregarContatos();
         }
 
-        private void button2_Click(object sender, EventArgs e) //ordenado por cargo
+        private void MostrarContatosNaTelaPorCargo()
         {
             List<Contato> contatos = repositoriocontato.SelecionarTodos();
             listContatos.Items.Clear();
 
             foreach (Contato c in contatos)
                 listContatos.Items.Add(c);
+
         }
+
+        private void button2_Click(object sender, EventArgs e) //ordenado por cargo
+        {
+            
+            
+                MostrarContatosNaTelaPorCargo();
+            
+
+        }
+
+
     }
     
 }

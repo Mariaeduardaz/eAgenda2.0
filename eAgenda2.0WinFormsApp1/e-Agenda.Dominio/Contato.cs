@@ -34,6 +34,8 @@ namespace eAgenda2._0WinFormsApp1
         public string Cargo { get; set; }
         
 
+       
+
         
         public override string ToString()
         {
@@ -72,6 +74,18 @@ namespace eAgenda2._0WinFormsApp1
             return stringbuilder.ToString().Trim();
 
 
+        }
+
+        public string RetornarNome()
+        {
+            string nome = Nome;
+            return nome;
+        }
+
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new System.NotImplementedException();
         }
       
 

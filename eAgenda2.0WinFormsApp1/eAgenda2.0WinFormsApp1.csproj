@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="e-AgendaWinApp\ModuloTarefa\CadastroTarefa.cs" />
+    <Compile Remove="e-AgendaWinApp\ModuloTarefa\CadastroTarefa.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="e-AgendaWinApp\ModuloTarefa\CadastroTarefa.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 

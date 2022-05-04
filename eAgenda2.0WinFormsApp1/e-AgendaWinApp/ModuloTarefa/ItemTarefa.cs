@@ -2,6 +2,7 @@
 
 namespace eAgenda2._0WinFormsApp1
 {
+   // [Serializable]
     public class ItemTarefa
     {
         public string Titulo { get; set; }

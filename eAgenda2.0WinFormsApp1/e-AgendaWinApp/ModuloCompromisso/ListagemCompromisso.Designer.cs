@@ -28,111 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnContatoPrioridade = new System.Windows.Forms.Button();
-            this.listCompromissos = new System.Windows.Forms.ListBox();
-            this.btnExcluirPrioridade = new System.Windows.Forms.Button();
-            this.btnEditarPrioridade = new System.Windows.Forms.Button();
-            this.btnInserirPrioridade = new System.Windows.Forms.Button();
-            this.listVisualizarNaSemana = new System.Windows.Forms.Button();
-            this.listVisualizarFuturos = new System.Windows.Forms.Button();
+            this.btnInserirCompromisso = new System.Windows.Forms.Button();
+            this.btnEditarCompromisso = new System.Windows.Forms.Button();
+            this.btnExcluirCompromisso = new System.Windows.Forms.Button();
+            this.listVisualizarFuturos = new System.Windows.Forms.ListBox();
+            this.btnContatoCompromisso = new System.Windows.Forms.Button();
+            this.listVisualizarPassados = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnContatoPrioridade
+            // btnInserirCompromisso
             // 
-            this.btnContatoPrioridade.Location = new System.Drawing.Point(435, 12);
-            this.btnContatoPrioridade.Name = "btnContatoPrioridade";
-            this.btnContatoPrioridade.Size = new System.Drawing.Size(112, 34);
-            this.btnContatoPrioridade.TabIndex = 15;
-            this.btnContatoPrioridade.Text = "Visualizar";
-            this.btnContatoPrioridade.UseVisualStyleBackColor = true;
+            this.btnInserirCompromisso.Location = new System.Drawing.Point(44, 21);
+            this.btnInserirCompromisso.Name = "btnInserirCompromisso";
+            this.btnInserirCompromisso.Size = new System.Drawing.Size(112, 34);
+            this.btnInserirCompromisso.TabIndex = 13;
+            this.btnInserirCompromisso.Text = "Inserir";
+            this.btnInserirCompromisso.UseVisualStyleBackColor = true;
+            this.btnInserirCompromisso.Click += new System.EventHandler(this.btnInserirCompromisso_Click);
             // 
-            // listCompromissos
+            // btnEditarCompromisso
             // 
-            this.listCompromissos.FormattingEnabled = true;
-            this.listCompromissos.ItemHeight = 25;
-            this.listCompromissos.Location = new System.Drawing.Point(12, 110);
-            this.listCompromissos.Name = "listCompromissos";
-            this.listCompromissos.Size = new System.Drawing.Size(535, 354);
-            this.listCompromissos.TabIndex = 14;
+            this.btnEditarCompromisso.Location = new System.Drawing.Point(180, 21);
+            this.btnEditarCompromisso.Name = "btnEditarCompromisso";
+            this.btnEditarCompromisso.Size = new System.Drawing.Size(112, 34);
+            this.btnEditarCompromisso.TabIndex = 14;
+            this.btnEditarCompromisso.Text = "Editar";
+            this.btnEditarCompromisso.UseVisualStyleBackColor = true;
+            this.btnEditarCompromisso.Click += new System.EventHandler(this.btnEditarCompromisso_Click);
             // 
-            // btnExcluirPrioridade
+            // btnExcluirCompromisso
             // 
-            this.btnExcluirPrioridade.Location = new System.Drawing.Point(295, 12);
-            this.btnExcluirPrioridade.Name = "btnExcluirPrioridade";
-            this.btnExcluirPrioridade.Size = new System.Drawing.Size(112, 34);
-            this.btnExcluirPrioridade.TabIndex = 13;
-            this.btnExcluirPrioridade.Text = "Excluir";
-            this.btnExcluirPrioridade.UseVisualStyleBackColor = true;
-            this.btnExcluirPrioridade.Click += new System.EventHandler(this.btnExcluirPrioridade_Click);
-            // 
-            // btnEditarPrioridade
-            // 
-            this.btnEditarPrioridade.Location = new System.Drawing.Point(157, 12);
-            this.btnEditarPrioridade.Name = "btnEditarPrioridade";
-            this.btnEditarPrioridade.Size = new System.Drawing.Size(112, 34);
-            this.btnEditarPrioridade.TabIndex = 12;
-            this.btnEditarPrioridade.Text = "Editar";
-            this.btnEditarPrioridade.UseVisualStyleBackColor = true;
-            this.btnEditarPrioridade.Click += new System.EventHandler(this.btnEditarPrioridade_Click);
-            // 
-            // btnInserirPrioridade
-            // 
-            this.btnInserirPrioridade.Location = new System.Drawing.Point(21, 12);
-            this.btnInserirPrioridade.Name = "btnInserirPrioridade";
-            this.btnInserirPrioridade.Size = new System.Drawing.Size(112, 34);
-            this.btnInserirPrioridade.TabIndex = 11;
-            this.btnInserirPrioridade.Text = "Inserir";
-            this.btnInserirPrioridade.UseVisualStyleBackColor = true;
-            this.btnInserirPrioridade.Click += new System.EventHandler(this.btnInserirCompromisso_Click);
-            // 
-            // listVisualizarNaSemana
-            // 
-            this.listVisualizarNaSemana.Location = new System.Drawing.Point(21, 52);
-            this.listVisualizarNaSemana.Name = "listVisualizarNaSemana";
-            this.listVisualizarNaSemana.Size = new System.Drawing.Size(275, 34);
-            this.listVisualizarNaSemana.TabIndex = 16;
-            this.listVisualizarNaSemana.Text = "Visualizar da semana";
-            this.listVisualizarNaSemana.UseVisualStyleBackColor = true;
-            this.listVisualizarNaSemana.Click += new System.EventHandler(this.btnVisualizarNaSemana_Click);
+            this.btnExcluirCompromisso.Location = new System.Drawing.Point(318, 21);
+            this.btnExcluirCompromisso.Name = "btnExcluirCompromisso";
+            this.btnExcluirCompromisso.Size = new System.Drawing.Size(112, 34);
+            this.btnExcluirCompromisso.TabIndex = 15;
+            this.btnExcluirCompromisso.Text = "Excluir";
+            this.btnExcluirCompromisso.UseVisualStyleBackColor = true;
+            this.btnExcluirCompromisso.Click += new System.EventHandler(this.btnExcluirCompromisso_Click);
             // 
             // listVisualizarFuturos
             // 
-            this.listVisualizarFuturos.Location = new System.Drawing.Point(302, 52);
+            this.listVisualizarFuturos.FormattingEnabled = true;
+            this.listVisualizarFuturos.ItemHeight = 25;
+            this.listVisualizarFuturos.Location = new System.Drawing.Point(44, 98);
             this.listVisualizarFuturos.Name = "listVisualizarFuturos";
-            this.listVisualizarFuturos.Size = new System.Drawing.Size(245, 34);
-            this.listVisualizarFuturos.TabIndex = 17;
-            this.listVisualizarFuturos.Text = "Visualizar futuros";
-            this.listVisualizarFuturos.UseVisualStyleBackColor = true;
-            this.listVisualizarFuturos.Click += new System.EventHandler(this.btnVisualizarFuturos_Click);
+            this.listVisualizarFuturos.Size = new System.Drawing.Size(577, 129);
+            this.listVisualizarFuturos.TabIndex = 16;
+            // 
+            // btnContatoCompromisso
+            // 
+            this.btnContatoCompromisso.Location = new System.Drawing.Point(458, 21);
+            this.btnContatoCompromisso.Name = "btnContatoCompromisso";
+            this.btnContatoCompromisso.Size = new System.Drawing.Size(112, 34);
+            this.btnContatoCompromisso.TabIndex = 17;
+            this.btnContatoCompromisso.Text = "Visualizar";
+            this.btnContatoCompromisso.UseVisualStyleBackColor = true;
+            this.btnContatoCompromisso.Click += new System.EventHandler(this.btnContatoCompromisso_Click);
+            // 
+            // listVisualizarPassados
+            // 
+            this.listVisualizarPassados.FormattingEnabled = true;
+            this.listVisualizarPassados.ItemHeight = 25;
+            this.listVisualizarPassados.Location = new System.Drawing.Point(44, 259);
+            this.listVisualizarPassados.Name = "listVisualizarPassados";
+            this.listVisualizarPassados.Size = new System.Drawing.Size(577, 129);
+            this.listVisualizarPassados.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(442, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 25);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Compromisso futuro";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(426, 230);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Compromisso Passado";
             // 
             // ListagemCompromisso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(588, 486);
+            this.ClientSize = new System.Drawing.Size(660, 416);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listVisualizarPassados);
+            this.Controls.Add(this.btnContatoCompromisso);
             this.Controls.Add(this.listVisualizarFuturos);
-            this.Controls.Add(this.listVisualizarNaSemana);
-            this.Controls.Add(this.btnContatoPrioridade);
-            this.Controls.Add(this.listCompromissos);
-            this.Controls.Add(this.btnExcluirPrioridade);
-            this.Controls.Add(this.btnEditarPrioridade);
-            this.Controls.Add(this.btnInserirPrioridade);
+            this.Controls.Add(this.btnExcluirCompromisso);
+            this.Controls.Add(this.btnEditarCompromisso);
+            this.Controls.Add(this.btnInserirCompromisso);
             this.Name = "ListagemCompromisso";
             this.Text = "ListagemCompromisso";
-            this.Load += new System.EventHandler(this.ListagemCompromisso_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnContatoPrioridade;
-        private System.Windows.Forms.ListBox listCompromissos;
-        private System.Windows.Forms.Button btnExcluirPrioridade;
-        private System.Windows.Forms.Button btnEditarPrioridade;
-        private System.Windows.Forms.Button btnInserirPrioridade;
-        private System.Windows.Forms.Button listVisualizarNaSemana;
-        private System.Windows.Forms.Button listVisualizarFuturos;
+        private System.Windows.Forms.Button btnInserirCompromisso;
+        private System.Windows.Forms.Button btnEditarCompromisso;
+        private System.Windows.Forms.Button btnExcluirCompromisso;
+        private System.Windows.Forms.ListBox listVisualizarFuturos;
+        private System.Windows.Forms.Button btnContatoCompromisso;
+        private System.Windows.Forms.ListBox listVisualizarPassados;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

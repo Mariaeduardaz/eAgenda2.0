@@ -12,6 +12,8 @@ namespace eAgenda2._0WinFormsApp1
 {
     public partial class TelaPrincipal : Form
     {
+        RepositorioContato repositorioContato = new();
+        RepositorioCompromisso repositorioCompromisso = new();
         public TelaPrincipal()
         {
             InitializeComponent();
@@ -37,6 +39,12 @@ namespace eAgenda2._0WinFormsApp1
         {
             ListagemContato listagemContato = new ListagemContato();
             listagemContato.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           ListagemCompromisso listagemCompromisso = new ListagemCompromisso(repositorioCompromisso, repositorioContato);
+            listagemCompromisso.ShowDialog();
         }
     }
 }

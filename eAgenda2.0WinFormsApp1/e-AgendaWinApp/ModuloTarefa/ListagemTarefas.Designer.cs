@@ -94,6 +94,7 @@
             this.listTarefas.Name = "listTarefas";
             this.listTarefas.Size = new System.Drawing.Size(877, 354);
             this.listTarefas.TabIndex = 5;
+            this.listTarefas.SelectedIndexChanged += new System.EventHandler(this.listTarefas_SelectedIndexChanged);
             // 
             // btnVisualizar
             // 

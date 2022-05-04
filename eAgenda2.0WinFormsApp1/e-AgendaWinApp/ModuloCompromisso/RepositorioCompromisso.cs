@@ -46,5 +46,18 @@ namespace eAgenda2._0WinFormsApp1
 
             return registrosFiltrados;
         }
+
+        internal string Inserir(object compromisso)
+        {
+            throw new NotImplementedException();
+        }
+        public bool RegistroExistente()
+        {
+            int quantidade = compromisso.Count;
+            if(quantidade == 0)
+                return false;
+            else
+                return true;
+        }
     }
 }

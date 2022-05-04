@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace eAgenda2._0WinFormsApp1
 {
+    [Serializable]
     public class Tarefa
     {
         public List<ItemTarefa> itens = new List<ItemTarefa>();

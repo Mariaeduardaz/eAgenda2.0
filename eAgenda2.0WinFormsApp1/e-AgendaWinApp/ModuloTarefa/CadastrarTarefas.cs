@@ -10,23 +10,18 @@ using System.Windows.Forms;
 
 namespace eAgenda2._0WinFormsApp1
 {
-    public partial class CadastroTarefa : Form 
+    public partial class CadastrarTarefas : Form
     {
         private Tarefa tarefa;
-        public CadastroTarefa(Tarefa _tarefa)
+        public CadastrarTarefas()
         {
             InitializeComponent();
-            tarefa = _tarefa;
-            if(tarefa != null)
-            {
-                
-            }
         }
 
        
         public Tarefa Tarefa
         {
-            get 
+            get
             {
                 return tarefa;
             }
@@ -34,31 +29,27 @@ namespace eAgenda2._0WinFormsApp1
             {
                 tarefa = value;
                 txtPrioridade.Text = tarefa.Prioridad.ToString();
-                txtTitulo.Text = tarefa.Titulo;
-                txtData.Text = tarefa.DataCriacao.Date.ToString();
-                
-                
+                txtPrioridade.Text = tarefa.Titulo;
+               
+
+
             }
         }
+      
 
-       
+        private void btnNome_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-           
-
             Tarefa.Titulo = txtTitulo.Text;
-           
-            
         }
-
-      
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-       
     }
 }

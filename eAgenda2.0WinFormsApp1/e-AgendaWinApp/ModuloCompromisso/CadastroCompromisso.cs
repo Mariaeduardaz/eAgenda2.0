@@ -12,54 +12,69 @@ namespace eAgenda2._0WinFormsApp1
 {
     public partial class CadastroCompromisso : Form
     {
-        Repositorio<Contato> _repositorioContato;
-        Compromisso? _compromisso;
-        public CadastroCompromisso(Compromisso compromissoVazio, Repositorio<Contato> repositorioContato)
-        {
-            InitializeComponent();
-            _compromisso = compromissoVazio;
-            _repositorioContato = repositorioContato;
+        
+            RepositorioContato _repositorioContato;
+            Compromisso? _compromisso;
+            public CadastroCompromisso(Compromisso compromissoVazio, RepositorioContato repositorioContato)
+            {
+                InitializeComponent();
+                _compromisso = compromissoVazio;
+                _repositorioContato = repositorioContato;
 
-            List<Contato> contatos = _repositorioContato.SelecionarTodos();
+                List<Contato> contatos = _repositorioContato.SelecionarTodos();
 
-           
+                comboBoxContato.Items.Clear();
+                foreach (Contato c in contatos)
+            {
+                comboBoxContato.Items.Add(c);
+            }
 
             if (_compromisso != null)
-            {
-                btnAssunto.Text = _compromisso.Assunto;
-                btnLocal.Text = _compromisso.Local;
-                btnDataDoCompromisso.Text = _compromisso.DataCompromisso.ToString();
-                btnHoraDeInicio.Text = _compromisso.HoraInicio.ToString();
-                btnHoraDoTermino.Text = _compromisso.HoraFim.ToString();
-               
-            }
-        }
+               {
+                txtAssunto.Text = _compromisso.Assunto;
+                txtLocal.Text = _compromisso.Local;
+                maskedBoxData.Text = _compromisso.DataCompromisso.ToString();
+                maskedBoxHorarioInicio.Text = _compromisso.HoraInicio.ToString();
+                maskedBoxHorarioFinal.Text = _compromisso.HoraFim.ToString();
+                if (_compromisso.Contato.RetornarNome() != null)
+                    comboBoxContato.Text = _compromisso.Contato.RetornarNome();
 
+            }
+
+            }
         public Compromisso Compromisso
         {
             get { return _compromisso!; }
             set { _compromisso = value; }
         }
 
-        private void btnInserir_Click(object sender, EventArgs e)
-        {
-            _compromisso!.Assunto = btnAssunto.Text;
-            _compromisso.Local = btnLocal.Text;
-            _compromisso.DataCompromisso = DateTime.Parse(btnDataDoCompromisso.Text);
-            _compromisso.HoraInicio = TimeSpan.Parse(btnHoraDeInicio.Text);
-            _compromisso.HoraFim = TimeSpan.Parse(btnHoraDoTermino.Text);
 
-           
+
+        private void CadastroCompromisso_Load(object sender, EventArgs e)
+            {
+
+            }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            _compromisso!.Assunto = txtAssunto.Text;
+            _compromisso.Local = txtLocal.Text;
+            _compromisso.DataCompromisso = DateTime.Parse(maskedBoxData.Text);
+            _compromisso.HoraInicio = TimeSpan.Parse(maskedBoxHorarioInicio.Text);
+            _compromisso.HoraFim = TimeSpan.Parse(maskedBoxHorarioFinal.Text);
+
+            comboBoxContato.Items.Insert(0, "(nenhum contato)");
+            if (comboBoxContato.SelectedItem == null)
+            {
+                comboBoxContato.SelectedItem = _compromisso.Contato;
+            }
+            _compromisso.Contato = (Contato)comboBoxContato.SelectedItem;
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void CadastroCompromisso_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

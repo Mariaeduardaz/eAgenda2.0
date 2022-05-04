@@ -28,138 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnExcluirContato = new System.Windows.Forms.Button();
-            this.btnEditarContato = new System.Windows.Forms.Button();
-            this.btnLocal = new System.Windows.Forms.Label();
+            this.txtAssunto = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.txtLocal = new System.Windows.Forms.TextBox();
+            this.btnTelefone = new System.Windows.Forms.Label();
             this.btnAssunto = new System.Windows.Forms.Label();
-            this.btnDataDoCompromisso = new System.Windows.Forms.Label();
-            this.btnHoraDeInicio = new System.Windows.Forms.Label();
-            this.btnHoraDoTermino = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.maskedBoxData = new System.Windows.Forms.MaskedTextBox();
+            this.maskedBoxHorarioInicio = new System.Windows.Forms.MaskedTextBox();
+            this.maskedBoxHorarioFinal = new System.Windows.Forms.MaskedTextBox();
+            this.comboBoxContato = new System.Windows.Forms.ComboBox();
+            this.btnHorarioFinal = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnData = new System.Windows.Forms.Label();
+            this.btnContatos = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnExcluirContato
+            // txtAssunto
             // 
-            this.btnExcluirContato.Location = new System.Drawing.Point(365, 348);
-            this.btnExcluirContato.Name = "btnExcluirContato";
-            this.btnExcluirContato.Size = new System.Drawing.Size(129, 51);
-            this.btnExcluirContato.TabIndex = 15;
-            this.btnExcluirContato.Text = "Cancelar";
-            this.btnExcluirContato.UseVisualStyleBackColor = true;
+            this.txtAssunto.AccessibleDescription = "";
+            this.txtAssunto.AllowDrop = true;
+            this.txtAssunto.Location = new System.Drawing.Point(134, 34);
+            this.txtAssunto.Name = "txtAssunto";
+            this.txtAssunto.Size = new System.Drawing.Size(238, 31);
+            this.txtAssunto.TabIndex = 40;
+            this.txtAssunto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnEditarContato
+            // btnCancelar
             // 
-            this.btnEditarContato.Location = new System.Drawing.Point(210, 348);
-            this.btnEditarContato.Name = "btnEditarContato";
-            this.btnEditarContato.Size = new System.Drawing.Size(134, 51);
-            this.btnEditarContato.TabIndex = 14;
-            this.btnEditarContato.Text = "Gravar";
-            this.btnEditarContato.UseVisualStyleBackColor = true;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(276, 369);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(112, 54);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnLocal
+            // btnGravar
             // 
-            this.btnLocal.AutoSize = true;
-            this.btnLocal.Location = new System.Drawing.Point(120, 45);
-            this.btnLocal.Name = "btnLocal";
-            this.btnLocal.Size = new System.Drawing.Size(56, 25);
-            this.btnLocal.TabIndex = 16;
-            this.btnLocal.Text = "Local:";
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGravar.Location = new System.Drawing.Point(159, 369);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(111, 54);
+            this.btnGravar.TabIndex = 38;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // txtLocal
+            // 
+            this.txtLocal.Location = new System.Drawing.Point(134, 86);
+            this.txtLocal.Name = "txtLocal";
+            this.txtLocal.Size = new System.Drawing.Size(238, 31);
+            this.txtLocal.TabIndex = 37;
+            // 
+            // btnTelefone
+            // 
+            this.btnTelefone.AutoSize = true;
+            this.btnTelefone.Location = new System.Drawing.Point(54, 89);
+            this.btnTelefone.Name = "btnTelefone";
+            this.btnTelefone.Size = new System.Drawing.Size(56, 25);
+            this.btnTelefone.TabIndex = 36;
+            this.btnTelefone.Text = "Local:";
             // 
             // btnAssunto
             // 
             this.btnAssunto.AutoSize = true;
-            this.btnAssunto.Location = new System.Drawing.Point(95, 95);
+            this.btnAssunto.Location = new System.Drawing.Point(35, 34);
             this.btnAssunto.Name = "btnAssunto";
             this.btnAssunto.Size = new System.Drawing.Size(81, 25);
-            this.btnAssunto.TabIndex = 17;
+            this.btnAssunto.TabIndex = 35;
             this.btnAssunto.Text = "Assunto:";
             // 
-            // btnDataDoCompromisso
+            // maskedBoxData
             // 
-            this.btnDataDoCompromisso.AutoSize = true;
-            this.btnDataDoCompromisso.Location = new System.Drawing.Point(1, 157);
-            this.btnDataDoCompromisso.Name = "btnDataDoCompromisso";
-            this.btnDataDoCompromisso.Size = new System.Drawing.Size(191, 25);
-            this.btnDataDoCompromisso.TabIndex = 18;
-            this.btnDataDoCompromisso.Text = "Data do compromisso";
+            this.maskedBoxData.Location = new System.Drawing.Point(134, 193);
+            this.maskedBoxData.Mask = "00/00/0000";
+            this.maskedBoxData.Name = "maskedBoxData";
+            this.maskedBoxData.Size = new System.Drawing.Size(238, 31);
+            this.maskedBoxData.TabIndex = 41;
             // 
-            // btnHoraDeInicio
+            // maskedBoxHorarioInicio
             // 
-            this.btnHoraDeInicio.AutoSize = true;
-            this.btnHoraDeInicio.Location = new System.Drawing.Point(70, 213);
-            this.btnHoraDeInicio.Name = "btnHoraDeInicio";
-            this.btnHoraDeInicio.Size = new System.Drawing.Size(122, 25);
-            this.btnHoraDeInicio.TabIndex = 19;
-            this.btnHoraDeInicio.Text = "Hora de inicio";
+            this.maskedBoxHorarioInicio.Location = new System.Drawing.Point(134, 250);
+            this.maskedBoxHorarioInicio.Mask = "00:00";
+            this.maskedBoxHorarioInicio.Name = "maskedBoxHorarioInicio";
+            this.maskedBoxHorarioInicio.Size = new System.Drawing.Size(238, 31);
+            this.maskedBoxHorarioInicio.TabIndex = 42;
+            this.maskedBoxHorarioInicio.ValidatingType = typeof(System.DateTime);
             // 
-            // btnHoraDoTermino
+            // maskedBoxHorarioFinal
             // 
-            this.btnHoraDoTermino.AutoSize = true;
-            this.btnHoraDoTermino.Location = new System.Drawing.Point(47, 271);
-            this.btnHoraDoTermino.Name = "btnHoraDoTermino";
-            this.btnHoraDoTermino.Size = new System.Drawing.Size(145, 25);
-            this.btnHoraDoTermino.TabIndex = 20;
-            this.btnHoraDoTermino.Text = "Hora do termino";
+            this.maskedBoxHorarioFinal.Location = new System.Drawing.Point(134, 299);
+            this.maskedBoxHorarioFinal.Mask = "00:00";
+            this.maskedBoxHorarioFinal.Name = "maskedBoxHorarioFinal";
+            this.maskedBoxHorarioFinal.Size = new System.Drawing.Size(238, 31);
+            this.maskedBoxHorarioFinal.TabIndex = 43;
+            this.maskedBoxHorarioFinal.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox1
+            // comboBoxContato
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 31);
-            this.textBox1.TabIndex = 21;
+            this.comboBoxContato.FormattingEnabled = true;
+            this.comboBoxContato.Location = new System.Drawing.Point(134, 136);
+            this.comboBoxContato.Name = "comboBoxContato";
+            this.comboBoxContato.Size = new System.Drawing.Size(238, 33);
+            this.comboBoxContato.TabIndex = 44;
             // 
-            // textBox2
+            // btnHorarioFinal
             // 
-            this.textBox2.Location = new System.Drawing.Point(198, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(296, 31);
-            this.textBox2.TabIndex = 22;
+            this.btnHorarioFinal.AutoSize = true;
+            this.btnHorarioFinal.Location = new System.Drawing.Point(12, 305);
+            this.btnHorarioFinal.Name = "btnHorarioFinal";
+            this.btnHorarioFinal.Size = new System.Drawing.Size(117, 25);
+            this.btnHorarioFinal.TabIndex = 45;
+            this.btnHorarioFinal.Text = "Horario Final:";
             // 
-            // textBox3
+            // label2
             // 
-            this.textBox3.Location = new System.Drawing.Point(198, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(296, 31);
-            this.textBox3.TabIndex = 23;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 253);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 25);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Horario Inicio";
             // 
-            // textBox4
+            // btnData
             // 
-            this.textBox4.Location = new System.Drawing.Point(198, 271);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(296, 31);
-            this.textBox4.TabIndex = 24;
+            this.btnData.AutoSize = true;
+            this.btnData.Location = new System.Drawing.Point(54, 199);
+            this.btnData.Name = "btnData";
+            this.btnData.Size = new System.Drawing.Size(53, 25);
+            this.btnData.TabIndex = 47;
+            this.btnData.Text = "Data:";
             // 
-            // textBox5
+            // btnContatos
             // 
-            this.textBox5.Location = new System.Drawing.Point(198, 95);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(296, 31);
-            this.textBox5.TabIndex = 25;
+            this.btnContatos.AutoSize = true;
+            this.btnContatos.Location = new System.Drawing.Point(28, 139);
+            this.btnContatos.Name = "btnContatos";
+            this.btnContatos.Size = new System.Drawing.Size(88, 25);
+            this.btnContatos.TabIndex = 48;
+            this.btnContatos.Text = "Contatos:";
             // 
             // CadastroCompromisso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(562, 423);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnHoraDoTermino);
-            this.Controls.Add(this.btnHoraDeInicio);
-            this.Controls.Add(this.btnDataDoCompromisso);
+            this.ClientSize = new System.Drawing.Size(451, 450);
+            this.Controls.Add(this.btnContatos);
+            this.Controls.Add(this.btnData);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnHorarioFinal);
+            this.Controls.Add(this.comboBoxContato);
+            this.Controls.Add(this.maskedBoxHorarioFinal);
+            this.Controls.Add(this.maskedBoxHorarioInicio);
+            this.Controls.Add(this.maskedBoxData);
+            this.Controls.Add(this.txtAssunto);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.txtLocal);
+            this.Controls.Add(this.btnTelefone);
             this.Controls.Add(this.btnAssunto);
-            this.Controls.Add(this.btnLocal);
-            this.Controls.Add(this.btnExcluirContato);
-            this.Controls.Add(this.btnEditarContato);
             this.Name = "CadastroCompromisso";
-            this.Text = ",";
+            this.Text = "CadastroCompromisso";
             this.Load += new System.EventHandler(this.CadastroCompromisso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,17 +200,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnExcluirContato;
-        private System.Windows.Forms.Button btnEditarContato;
-        private System.Windows.Forms.Label btnLocal;
+
+        private System.Windows.Forms.TextBox txtAssunto;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.TextBox txtLocal;
+        private System.Windows.Forms.Label btnTelefone;
         private System.Windows.Forms.Label btnAssunto;
-        private System.Windows.Forms.Label btnDataDoCompromisso;
-        private System.Windows.Forms.Label btnHoraDeInicio;
-        private System.Windows.Forms.Label btnHoraDoTermino;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.MaskedTextBox maskedBoxData;
+        private System.Windows.Forms.MaskedTextBox maskedBoxHorarioInicio;
+        private System.Windows.Forms.MaskedTextBox maskedBoxHorarioFinal;
+        private System.Windows.Forms.ComboBox comboBoxContato;
+        private System.Windows.Forms.Label btnHorarioFinal;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label btnData;
+        private System.Windows.Forms.Label btnContatos;
     }
 }

@@ -15,8 +15,9 @@ namespace eAgenda2._0WinFormsApp1
         private RepositorioTarefa repositorioTarefa;
         public ListagemTarefas()
         {
-            repositorioTarefa = new RepositorioTarefa();
             InitializeComponent();
+            repositorioTarefa = new RepositorioTarefa();
+            
             CarregarTarefas();
         }
 
@@ -65,7 +66,7 @@ namespace eAgenda2._0WinFormsApp1
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            CadastroTarefa tela = new CadastroTarefa();
+            CadastrarTarefas tela = new CadastrarTarefas();
             tela.Tarefa = new Tarefa();
 
             DialogResult resultado = tela.ShowDialog();
@@ -75,12 +76,12 @@ namespace eAgenda2._0WinFormsApp1
                 repositorioTarefa.Inserir(tela.Tarefa);
                 CarregarTarefas();
             }
-          
 
-          
-            
 
-            
+
+
+
+
 
         }
 
@@ -97,7 +98,7 @@ namespace eAgenda2._0WinFormsApp1
 
             }
 
-            CadastroTarefa tela = new CadastroTarefa();
+            CadastrarTarefas tela = new CadastrarTarefas();
 
             tela.Tarefa = tarefaSelecionada;
 
@@ -157,6 +158,11 @@ namespace eAgenda2._0WinFormsApp1
                 CarregarTarefas();
             }
             
+        }
+
+        private void listTarefas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

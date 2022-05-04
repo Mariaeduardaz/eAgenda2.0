@@ -18,10 +18,16 @@ namespace eAgenda2._0WinFormsApp1
 
 
         }
-        public void Inserir(Contato novoContato)
+        public string Inserir(Contato novoContato)
         {
-
+            string resultado = novoContato.Validar();
+            if(resultado.Trim() != "REGISTRO VALIDO")
+            {
+                return resultado;
+            }
             contatos.Add(novoContato);
+            return "REGISTRO VALIDO";
+            
 
         }
 
@@ -40,5 +46,6 @@ namespace eAgenda2._0WinFormsApp1
         {
             throw new NotImplementedException();
         }
+       
     }
 }

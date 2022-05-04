@@ -12,49 +12,55 @@ namespace eAgenda2._0WinFormsApp1
 {
     public partial class ListagemCompromisso : Form
     {
-        private RepositorioCompromisso repositorioCompromisso;
-        public ListagemCompromisso ()
+        private RepositorioCompromisso _repositorioCompromisso;
+        private RepositorioContato? _repositorioContato;
+
+        public ListagemCompromisso(RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato)
         {
-            repositorioCompromisso = new RepositorioCompromisso();
             InitializeComponent();
-            CarregarCompromisso();
+            _repositorioCompromisso = repositorioCompromisso;   
+            _repositorioContato = repositorioContato;
+            VisualizarFuturos();
+            VisualizarPassados();
         }
 
         private void CarregarCompromisso()
         {
-            List<Compromisso> compromissos = repositorioCompromisso.SelecionarTodos();
-
-            listCompromissos.Items.Clear();
-            foreach (Compromisso cp in compromissos)
-            {
-                listCompromissos.Items.Add(cp);
-            }
+            VisualizarFuturos();
+            VisualizarPassados();
         }
 
+
+
         private void btnInserirCompromisso_Click(object sender, EventArgs e)
-        { 
-            CadastroCompromisso telaCompromisso = new CadastroCompromisso(new Compromisso());
-
-
+        {
+            CadastroCompromisso telaCompromisso = new ( new Compromisso(), _repositorioContato!);
 
             DialogResult resultado = telaCompromisso.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
 
-                repositorioCompromisso.Inserir(telaCompromisso.Compromisso);
-                CarregarCompromisso();
+                _repositorioCompromisso.Inserir(telaCompromisso.Compromisso);
+                VisualizarFuturos();
+                VisualizarPassados();
             }
-        }
 
-        private void ListagemCompromisso_Load(object sender, EventArgs e)
-        {
+
 
         }
-
-        private void btnEditarPrioridade_Click(object sender, EventArgs e)
+        private void btnEditarCompromisso_Click(object sender, EventArgs e)
         {
-            Compromisso compromissoSelecionado = (Compromisso)listCompromissos.SelectedItem;
+            Compromisso compromissoSelecionado =  null;
+
+            if(listVisualizarPassados.SelectedIndex > -1)
+            {
+                compromissoSelecionado = (Compromisso)listVisualizarPassados.SelectedItem;
+            }
+            else
+            {
+                compromissoSelecionado = (Compromisso)listVisualizarFuturos.SelectedItem;          
+            }
 
             if (compromissoSelecionado == null)
             {
@@ -62,26 +68,51 @@ namespace eAgenda2._0WinFormsApp1
                 "compromisso editado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
-
             }
+            
 
-            CadastroCompromisso telacompromisso = new CadastroCompromisso(new Contato());
 
-            telacompromisso.Compromisso = compromissoSelecionado;
+            Compromisso telacompromisso = new ();
 
-            DialogResult resultado = telacompromisso.ShowDialog();
+            bool TemAlgo = VerificarSeTemRegistro(compromissoSelecionado, "Editar");
+            if (!TemAlgo)
+                return;
+
+            telacompromisso.Assunto = compromissoSelecionado.Assunto;
+            telacompromisso.Local = compromissoSelecionado.Local;
+            telacompromisso.DataCompromisso = compromissoSelecionado.DataCompromisso;
+            telacompromisso.HoraInicio = compromissoSelecionado.HoraInicio;
+            telacompromisso.HoraFim = compromissoSelecionado.HoraFim;
+
+            if(compromissoSelecionado.Contato != null)
+             telacompromisso.Contato = compromissoSelecionado.Contato;
+
+            CadastroCompromisso cadastroCompromisso = new(telacompromisso, _repositorioContato!);
+
+
+            
+
+            DialogResult resultado = cadastroCompromisso.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
-                repositorioCompromisso.Editar(telacompromisso.Compromisso);
+                _repositorioCompromisso.Editar(cadastroCompromisso.Compromisso);
                 CarregarCompromisso();
             }
-
         }
-
-        private void btnExcluirPrioridade_Click(object sender, EventArgs e)
+        private void btnExcluirCompromisso_Click(object sender, EventArgs e)
         {
-            Compromisso compromissoSelecionado = (Compromisso)listCompromissos.SelectedItem;
+            Compromisso compromissoSelecionado = null;
+
+            if (listVisualizarPassados.SelectedIndex > -1)
+            {
+                compromissoSelecionado = (Compromisso)listVisualizarPassados.SelectedItem;
+            }
+            else
+            {
+                compromissoSelecionado = (Compromisso)listVisualizarFuturos.SelectedItem;
+            }
+
 
             if (compromissoSelecionado == null)
             {
@@ -97,14 +128,13 @@ namespace eAgenda2._0WinFormsApp1
 
             if (resultado == DialogResult.OK)
             {
-                repositorioCompromisso.Excluir(compromissoSelecionado);
+                _repositorioCompromisso.Excluir(compromissoSelecionado);
                 CarregarCompromisso();
             }
         }
-
-        private void btnVisualizarFuturos_Click(object sender, EventArgs e)
+        private void VisualizarFuturos()
         {
-            List<Compromisso> compromissosFuturos = repositorioCompromisso.FiltrarCompromissos(x => x.DataCompromisso > DateTime.Now);
+            List<Compromisso> compromissosFuturos = _repositorioCompromisso.FiltrarCompromissos(x => x.DataCompromisso > DateTime.Now);
             listVisualizarFuturos.Items.Clear();
             foreach (Compromisso c in compromissosFuturos)
             {
@@ -112,14 +142,35 @@ namespace eAgenda2._0WinFormsApp1
             }
         }
 
-        private void btnVisualizarNaSemana_Click(object sender, EventArgs e)
+        private void VisualizarPassados()
         {
-            List<Compromisso> compromissosPassados = repositorioCompromisso.FiltrarCompromissos(x => x.DataCompromisso <= DateTime.Now);
-            listVisualizarNaSemana.Items.Clear();
+            List<Compromisso> compromissosPassados = _repositorioCompromisso.FiltrarCompromissos(x => x.DataCompromisso <= DateTime.Now);
+            listVisualizarPassados.Items.Clear();
             foreach (Compromisso c in compromissosPassados)
             {
-                listVisualizarNaSemana.Items.Add(c);
+                listVisualizarPassados.Items.Add(c);
             }
         }
+        private void btnContatoCompromisso_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool VerificarSeTemRegistro(Compromisso compromissoSelecionado, string tipo)
+        {
+            bool temAlgo = _repositorioCompromisso.RegistroExistente();
+            if (!temAlgo)
+            {
+                MessageBox.Show($"Nenhum compromisso para {tipo}", tipo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (compromissoSelecionado == null)
+            {
+                MessageBox.Show($"Selecione um compromisso para {tipo}", tipo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+                return true;
+        }
     }
+
 }
